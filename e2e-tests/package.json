@@ -1,0 +1,36 @@
+{
+  "name": "codevisualizer-e2e-tests",
+  "version": "1.0.0",
+  "description": "End-to-end tests for CodeVisualizer application",
+  "scripts": {
+    "test": "vitest run --config vitest.config.e2e.ts",
+    "test:watch": "vitest --config vitest.config.e2e.ts",
+    "test:ui": "vitest --ui --config vitest.config.e2e.ts",
+    "test:coverage": "vitest run --coverage --config vitest.config.e2e.ts",
+    "test:upload-flow": "vitest run --config vitest.config.e2e.ts upload-flow.e2e.test.tsx",
+    "test:analysis-display": "vitest run --config vitest.config.e2e.ts analysis-display.e2e.test.tsx",
+    "test:tabs": "vitest run --config vitest.config.e2e.ts tabs-functionality.e2e.test.tsx",
+    "test:cross-browser": "vitest run --config vitest.config.e2e.ts cross-browser.e2e.test.tsx",
+    "test:ci": "npm run test -- --reporter=junit --outputFile=test-results.xml",
+    "test:parallel": "vitest run --config vitest.config.e2e.ts --pool=threads --poolOptions.threads.maxThreads=4",
+    "start-servers": "node scripts/start-servers.js",
+    "stop-servers": "node scripts/stop-servers.js",
+    "health-check": "node scripts/health-check.js",
+    "test:full": "npm run start-servers && npm run test && npm run stop-servers"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitejs/plugin-react": "^5.0.3",
+    "jsdom": "^27.0.0",
+    "node-fetch": "^3.3.2",
+    "vitest": "^3.2.4",
+    "typescript": "^5.0.0",
+    "@vitest/ui": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
